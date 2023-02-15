@@ -161,6 +161,7 @@ if __name__ == "__main__":
 
   Path(args.dest).mkdir(parents=True, exist_ok=True)
 
-  pool = Pool()
-  results = pool.map(draw_mediapipe_landmarks, mapped)
-  print(results)
+  for mediapipe_info in tqdm(mapped):
+    draw_mediapipe_landmarks(mediapipe_info)
+
+  # print(results)
